@@ -14,6 +14,9 @@ author:
   image: sean.jpg
 ---
 
-We're a group of friends currently knee deep working on solving some problems with water and dirt. We'll be keeping our dev log here with our trials and tribulations outlined for all to read. Stay tuned.
-
-
+We're a group of friends looking to solve some fun problems in our free time outside of work and school. 
+Our experience ranges from data analysis all the way over to the low level world of the resistor. 
+Along with this we're commited to open source software and hardware. As such we hope to release our designs 
+and software as we solve each problem so that anyone can build and use it. This we hope will give us the 
+impact we desire and ultimately it will just be good old fun. We've been working in our free time and we 
+will continue to do so, so stay tuned for updates.
