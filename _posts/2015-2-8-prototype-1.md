@@ -36,7 +36,7 @@ We can then wire it up in a simple voltage divider circuit to give us a nice ana
 Note that we're actually powering it across two digital I/O pins, which allows us to 'float' the sensor when we're not reading it. 
 This reduces the amount of electricity we're dumping into the ground, and therefore lessens electrolysis corrosion and increases battery life.
 As it turns out, it also keeps multiple sensors in the same bucket from interfering with each other by providing alternate paths to ground. 
-(Note: by bucket, I mean a literal bucket of water, which is fantastic for basic sensor testing).
+(Note: by bucket, I mean a literal bucket of water, which is fantastic for basic sensor testing.)
 
 A few lessons we learned from this prototype: 
 1. Routing round stock in a straight line is tricky
@@ -51,7 +51,8 @@ To fix the crookedness of the router cuts, I made a little jig that gives a flat
 It cuts pretty straight, but you also have to not be a moron and feed the router so that it pushes the post into the fence instead of pulling it away...
 ![Jig cut](/images/posts/2015/02/08/jig-cut.jpg)
 
-Finally, I skipped the ring terminals and instead put a small piece of plastic cut from a clamshell package between the probes to isolate them. 
+Finally, I skipped the ring terminals and just wrapped wire around the screws.
+I put a small piece of plastic cut from a clamshell package between the probes to isolate them. 
 I also assembled everything with a heavy dose of silicone caulk, which waterproofs the inside of the sensor and gives us a much speedier reaction time. 
 One side effect of this is that our ideal voltage divider resistance has changed, so that 330 ohm resistor will probably get much smaller. 
 ![Silicone](/images/posts/2015/02/08/2-silicone.jpg)
