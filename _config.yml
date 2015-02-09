@@ -19,14 +19,13 @@ inc:
   
   # Comments
   disqus:
-    # Eg. "exampleblog" Set to false to disable comments
     shortname:  false
   
   # Sharing settings
   sharing:
     twitter:    false
     facebook:   false
-    gplus:      false
+    gplus:      true
     hn:         false
     
   
@@ -59,7 +58,7 @@ highlighter: pygments
 relative_permalinks: true
 
 permalink:     pretty
-paginate_path: 'page:num'
+paginate_path: 'blog/page:num/'
 paginate: 10
 
 markdown:      kramdown
