@@ -14,8 +14,8 @@ inc:
   about_link:   https://heqetlabs.com/about/
   
   # Product Information
-  product_link: http://heqetlabs.com/product
-  tagline:      "Helping people get the most out of their farms."
+  product_link: false #http://heqetlabs.com/product
+  tagline:      "Bringing open technology to small time farmers"
   
   # Comments
   disqus:
