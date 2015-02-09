@@ -9,7 +9,7 @@ excerpt: "Build details and results for our first prototype design."
 
 author:
   name: Nathan Jarus
-  gplus: +LinuxMercedes
+  gplus: +NathanJarus
   bio: Tinkerer
   image: nate.png
 ---
