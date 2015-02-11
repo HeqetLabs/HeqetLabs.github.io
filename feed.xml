@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title></title>
+    <link>http://www.heqetlabs.com</link>
+    <atom:link href="http://www.heqetlabs.com/feed.xml" rel="self" type="application/rss+xml" />
+    <description></description>
+    <language>en-us</language>
+    <pubDate>Wed, 11 Feb 2015 06:33:53 +0000</pubDate>
+    <lastBuildDate>Wed, 11 Feb 2015 06:33:53 +0000</lastBuildDate>
+
+    
+    
+    <item>
+      <title>First Prototype</title>
+      <link>http://www.heqetlabs.com/2015/02/08/prototype-1/</link>
+      <pubDate>Sun, 08 Feb 2015 00:00:00 +0000</pubDate>
+      <author></author>
+      <guid>http://www.heqetlabs.com/2015/02/08/prototype-1</guid>
+      <description>&lt;p&gt;This initial prototype was designed to be relatively simple to make with tools I had in my basement and materials I could get from the local hardware store. 
+I’ve made three of these, now, and the process changes a little each time as I get better at anticipating what needs to happen. &lt;/p&gt;
+
+&lt;p&gt;We made it from a 2’ length of 1” dowel rod with a pocket routed in one end to hold a pair of 1”x1/2”x1/4” aluminum electrodes.
+Dowel rod was cheap, and we know that things under about 1” are pretty easy to pound into the ground, especially if they are pointed and persuaded with a properly sized fence-post hammer. 
+Since we’ll be passing a current between probes buried in the ground, we have to worry about electrolysis ocurring between the probes. 
+In addition, we want to avoid using materials that will form a galvanic cell when buried in earth. 
+As such, we’ve chosen aluminum, instead of copper or galvanized steel, for our sensor probes.
+Ultimately, we will probably go with stainless steel, but it’s not locally available where I live. &lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/2015/02/08/1-complete.jpg&quot; alt=&quot;First prototype&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Each sensor probe has a hole drilled in it, allowing us to crimp ring terminals onto a wire and attach them to the sensor. 
+The crimps serve a second purpose of spacing the probes out so they don’t short out inside the post.
+&lt;img src=&quot;/images/posts/2015/02/08/1-detail.jpg&quot; alt=&quot;Connection detail&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We can then wire it up in a simple voltage divider circuit to give us a nice analog input for an arduino: 
+&lt;img src=&quot;/images/posts/2015/02/08/circuit.jpg&quot; alt=&quot;Circuit&quot; /&gt;
+&lt;img src=&quot;/images/posts/2015/02/08/arduino.jpg&quot; alt=&quot;Arduino&quot; /&gt;
+Note that we’re actually powering it across two digital I/O pins, which allows us to ‘float’ the sensor when we’re not reading it. 
+This reduces the amount of electricity we’re dumping into the ground, and therefore lessens electrolysis corrosion and increases battery life.
+As it turns out, it also keeps multiple sensors in the same bucket from interfering with each other by providing alternate paths to ground. 
+(Note: by bucket, I mean a literal bucket of water, which is fantastic for basic sensor testing.)&lt;/p&gt;
+
+&lt;p&gt;A few lessons we learned from this prototype: 
+1. Routing round stock in a straight line is tricky
+2. Assembling the sensor probes is difficult
+3. Ring terminals introduce needless complexity; these probes probably won’t ever be disconnected
+4. Since water can get inside the sensor, sensor readings tend to significantly lag physical changes&lt;/p&gt;
+
+&lt;p&gt;To fix the crookedness of the router cuts, I made a little jig that gives a flat surface to hold against the router table fence. 
+&lt;img src=&quot;/images/posts/2015/02/08/jig-1.jpg&quot; alt=&quot;Jig&quot; /&gt;
+&lt;img src=&quot;/images/posts/2015/02/08/jig-2.jpg&quot; alt=&quot;Jig against fence&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;It cuts pretty straight, but you also have to not be a moron and feed the router so that it pushes the post into the fence instead of pulling it away…
+&lt;img src=&quot;/images/posts/2015/02/08/jig-cut.jpg&quot; alt=&quot;Jig cut&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Finally, I skipped the ring terminals and just wrapped wire around the screws.
+I put a small piece of plastic cut from a clamshell package between the probes to isolate them. 
+I also assembled everything with a heavy dose of silicone caulk, which waterproofs the inside of the sensor and gives us a much speedier reaction time. 
+One side effect of this is that our ideal voltage divider resistance has changed, so that 330 ohm resistor will probably get much smaller. 
+&lt;img src=&quot;/images/posts/2015/02/08/2-silicone.jpg&quot; alt=&quot;Silicone&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;For more fun technical notes on things including what ‘ideal voltage divider resistance’ means, check out the &lt;a href=&quot;https://github.com/streed/farm/blob/11820bb0a3ebbf2a57b61098e9bfcadb6f4f15cd/Prototypes/1/sketch/sketch.ino&quot;&gt;arduino sketch&lt;/a&gt; we’ve been using to test this stuff. &lt;/p&gt;
+
+&lt;p&gt;From here, we’ll be doing some in-soil testing (once the ground stops being frozen) and working to improve the sensor design and the microcontroller code. &lt;/p&gt;
+</description>
+    </item>
+    
+    
+    
+    <item>
+      <title>Inital Post</title>
+      <link>http://www.heqetlabs.com/2015/02/04/intial-post/</link>
+      <pubDate>Wed, 04 Feb 2015 00:00:00 +0000</pubDate>
+      <author></author>
+      <guid>http://www.heqetlabs.com/2015/02/04/intial-post</guid>
+      <description>&lt;p&gt;We’re a group of friends looking to solve some fun problems in our free time outside of work and school. 
+Our experience ranges from data analysis all the way to the low level world of the resistor. 
+Along with this, we’re commited to open source software and hardware. As such we plan to release our designs 
+and software as we solve each problem so that anyone can build and use them. This, we hope, will give us the 
+impact we desire and ultimately will just be good old fun. We’ve been working in our free time and we 
+will continue to do so, so stay tuned for updates.&lt;/p&gt;
+</description>
+    </item>
+    
+    
+
+  </channel> 
+</rss>

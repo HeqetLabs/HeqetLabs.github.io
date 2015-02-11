@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Prototype &mdash; Heqet Labs</title>
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/images/logo.png"/>
+    <link href="/feed.xml" rel="alternate" type="application/rss+xml" title="Heqet Labs" />
+    <meta name="title" content="First Prototype ">
+    <link rel="canonical" href="http://www.heqetlabs.com/2015/02/08/prototype-1/">
+     
+    <link rel="author" href="https://plus.google.com/+NathanJarus">       
+    <meta property="og:title" content="First Prototype "/>
+    <meta property="og:url" content="http://www.heqetlabs.com/2015/02/08/prototype-1/"/>
+    
+    <meta property="og:image" content="http://www.heqetlabs.com/images/blog-cover.jpg"/>
+    
+    <meta property="og:image" content="http://www.heqetlabs.com/images/logo.png"/>   
+    
+    
+    <meta property="og:description" content="Build details and results for our first prototype design."/>
+    <meta name="description" content="Build details and results for our first prototype design."/>
+    
+    <meta property="og:site_name" content="Heqet Labs">     
+</head>
+<body>
+    
+<section class="site-nav">
+    <header>
+        <nav id="navigation">
+            <a class="brand" href="/">
+                <img src="/images/logo.png" alt="Inc">
+            </a>
+            <a href="/" class="home">Blog</a>
+            
+            <a href="https://heqetlabs.com/about/">About</a>
+        </nav>
+        <nav class="tagline">
+            <span>A group of friends building open hardware and software.</span>
+            
+        </nav>
+    </header>
+</section>
+
+
+<div class="article-cover">
+    <div>
+        <img src="/images/blog-cover.jpg" class="image">
+    </div>
+</div>
+
+<article>
+
+    <div class="container">
+        <header>
+            <div class="meta">
+                By <address><a rel="author" href="" title="Nathan Jarus" target="_blank">Nathan Jarus</a></address> &mdash;
+                <time pubdate datetime="2015-08-February" title="February 08, 2015">February 08, 2015</time>
+            </div>
+            <h1 class="title">First Prototype</h1>
+            <h2 class="subtitle">Design and Results</h2>
+        </header>
+
+        <section>
+            <p>This initial prototype was designed to be relatively simple to make with tools I had in my basement and materials I could get from the local hardware store. 
+I’ve made three of these, now, and the process changes a little each time as I get better at anticipating what needs to happen. </p>
+
+<p>We made it from a 2’ length of 1” dowel rod with a pocket routed in one end to hold a pair of 1”x1/2”x1/4” aluminum electrodes.
+Dowel rod was cheap, and we know that things under about 1” are pretty easy to pound into the ground, especially if they are pointed and persuaded with a properly sized fence-post hammer. 
+Since we’ll be passing a current between probes buried in the ground, we have to worry about electrolysis ocurring between the probes. 
+In addition, we want to avoid using materials that will form a galvanic cell when buried in earth. 
+As such, we’ve chosen aluminum, instead of copper or galvanized steel, for our sensor probes.
+Ultimately, we will probably go with stainless steel, but it’s not locally available where I live. </p>
+
+<p><img src="/images/posts/2015/02/08/1-complete.jpg" alt="First prototype" /></p>
+
+<p>Each sensor probe has a hole drilled in it, allowing us to crimp ring terminals onto a wire and attach them to the sensor. 
+The crimps serve a second purpose of spacing the probes out so they don’t short out inside the post.
+<img src="/images/posts/2015/02/08/1-detail.jpg" alt="Connection detail" /></p>
+
+<p>We can then wire it up in a simple voltage divider circuit to give us a nice analog input for an arduino: 
+<img src="/images/posts/2015/02/08/circuit.jpg" alt="Circuit" />
+<img src="/images/posts/2015/02/08/arduino.jpg" alt="Arduino" />
+Note that we’re actually powering it across two digital I/O pins, which allows us to ‘float’ the sensor when we’re not reading it. 
+This reduces the amount of electricity we’re dumping into the ground, and therefore lessens electrolysis corrosion and increases battery life.
+As it turns out, it also keeps multiple sensors in the same bucket from interfering with each other by providing alternate paths to ground. 
+(Note: by bucket, I mean a literal bucket of water, which is fantastic for basic sensor testing.)</p>
+
+<p>A few lessons we learned from this prototype: 
+1. Routing round stock in a straight line is tricky
+2. Assembling the sensor probes is difficult
+3. Ring terminals introduce needless complexity; these probes probably won’t ever be disconnected
+4. Since water can get inside the sensor, sensor readings tend to significantly lag physical changes</p>
+
+<p>To fix the crookedness of the router cuts, I made a little jig that gives a flat surface to hold against the router table fence. 
+<img src="/images/posts/2015/02/08/jig-1.jpg" alt="Jig" />
+<img src="/images/posts/2015/02/08/jig-2.jpg" alt="Jig against fence" /></p>
+
+<p>It cuts pretty straight, but you also have to not be a moron and feed the router so that it pushes the post into the fence instead of pulling it away…
+<img src="/images/posts/2015/02/08/jig-cut.jpg" alt="Jig cut" /></p>
+
+<p>Finally, I skipped the ring terminals and just wrapped wire around the screws.
+I put a small piece of plastic cut from a clamshell package between the probes to isolate them. 
+I also assembled everything with a heavy dose of silicone caulk, which waterproofs the inside of the sensor and gives us a much speedier reaction time. 
+One side effect of this is that our ideal voltage divider resistance has changed, so that 330 ohm resistor will probably get much smaller. 
+<img src="/images/posts/2015/02/08/2-silicone.jpg" alt="Silicone" /></p>
+
+<p>For more fun technical notes on things including what ‘ideal voltage divider resistance’ means, check out the <a href="https://github.com/streed/farm/blob/11820bb0a3ebbf2a57b61098e9bfcadb6f4f15cd/Prototypes/1/sketch/sketch.ino">arduino sketch</a> we’ve been using to test this stuff. </p>
+
+<p>From here, we’ll be doing some in-soil testing (once the ground stops being frozen) and working to improve the sensor design and the microcontroller code. </p>
+
+            
+<div class="social">
+    
+    
+    
+    <div>
+        <div class="g-plusone" data-size="medium"></div>
+    </div>
+    
+    
+    
+</div>
+
+
+        </section>
+
+        <footer>
+            <address>
+               <img src="/images/nate.png">
+                <p>Written by <strong><a rel="author" href="https://plus.google.com/+NathanJarus" title="" target="_blank">Nathan Jarus</a></strong><br>
+                <span class="muted">Tinkerer</span>
+                </p>
+            </address>
+
+        </footer>
+
+        
+    </div>
+</article>
+
+
+<footer class="site-footer">
+    <div class="container">
+        &copy; 2015 
+        
+        <nav>
+            <a href="http://www.heqetlabs.com/">HeqetLabs</a> &middot;
+            <a href="/">Blog</a> &middot;
+            
+            <a href="https://heqetlabs.com/about/">About</a>
+        </nav>
+        
+        <nav class="social">
+            <!--
+            
+            <a href="https://twitter.com/heqetlabs" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter black"></i></a>
+            
+            
+            <a href="http://facebook.com/heqetlabs" title="Follow on Facebook" target="_blank"><i class="icon icon-facebook black"></i></a>
+                
+            -->
+            <a href="/feed.xml" title="RSS Feed">
+                <i class="icon icon-rss black"></i>
+            </a>
+        </nav>
+        <p>Incorporated theme by <a href="https://sendtoinc.com">Inc</a></p>
+    </div>
+</footer>
+
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="/assets/main.js"></script>
+
+
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+
+
+
+</body>
+</html>
