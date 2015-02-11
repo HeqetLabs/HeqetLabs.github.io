@@ -15,7 +15,7 @@ inc:
   
   # Product Information
   product_link: false #http://heqetlabs.com/product
-  tagline:      "Bringing open technology to small time farmers"
+  tagline:      "A group of friends building open hardware and software."
   
   # Comments
   disqus:
